@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ESP32 Home Automation</title>
+
+    <link href="css/entireframework.min.css" rel="stylesheet" type="text/css">
+    <link href="css/toggle-switchy.css" rel="stylesheet" type="text/css">
+    <link href="css/custom.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+    <nav class="nav" tabindex="-1" onclick="this.focus()">
+        <div class="container">
+            <a class="pagename current" href="#">www.donskytech.com</a>
+            <a href="#">One</a>
+            <a href="#">Two</a>
+            <a href="#">Three</a>
+        </div>
+    </nav>
+    <button class="btn-close btn btn-sm">×</button>
+    <div class="container">
+        <div class="hero">
+            <div class="container">
+                <h2>ESP32 Home Automation using Web Server</h2>
+                <form class="form1" action="">
+                    <label for="tube" class="labels">Tube Light</label>
+                    <div class="load-content">
+                        <label class="toggle-switchy" for="tube" data-size="xl" data-style="rounded">
+                            <input type="checkbox" name="tube" id="tube" %TUBE_TEMPLATE_STATUS%>
+                            <span class="toggle">
+                                <span class="switch"></span>
+                            </span>
+                        </label>
+                    </div>
+                    <label for="bulb" class="labels">Bulb</label>
+                    <div class="load-content">
+                        <label class="toggle-switchy" for="bulb" data-size="xl" data-style="rounded">
+                            <input type="checkbox" name="bulb" id="bulb" %BULB_TEMPLATE_STATUS%>
+                            <span class="toggle">
+                                <span class="switch"></span>
+                            </span>
+                        </label>
+                    </div>
+                    <label for="socket" class="labels">Socket</label>
+                    <div class="load-content">
+                        <label class="toggle-switchy" for="socket" data-size="xl" data-style="rounded">
+                            <input type="checkbox" name="socket" id="socket" %SOCKET_TEMPLATE_STATUS%>
+                            <span class="toggle">
+                                <span class="switch"></span>
+                            </span>
+
+                        </label>
+                    </div>
+
+                    <div class="slider-content">
+                        <div class="center">
+                            <label for="dimmable" class="simple-labels">Dimmable Bulb:</label>
+                            <span id="dim-value">%DIMMER_VALUE%</span>
+                        </div>
+
+                        <div id="container" class="center">
+                            <input type="range" id="dim-value-slider" step=5 value="%DIMMER_VALUE%">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+
+            <script src="js/custom.js"></script>
+        </div>
+    </div>
+</body>
+
+</html>
