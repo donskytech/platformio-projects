@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ESP32 Robot Car Using Websocket</title>
+
+    <link href="css/entireframework.min.css" rel="stylesheet" type="text/css">
+    <link href="css/custom.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+    <nav class="nav" tabindex="-1" onclick="this.focus()">
+        <div class="container">`
+            <a class="pagename current" href="#">www.donskytech.com</a>
+            <a href="#">One</a>
+            <a href="#">Two</a>
+            <a href="#">Three</a>
+        </div>
+    </nav>
+    <button class="btn-close btn btn-sm">×</button>
+    <div class="container">
+        <div class="hero">
+            <h2>ESP32 Robot Car Using Websockets</h2>
+        </div>
+
+        <div class="parent">
+            <div class="speed-settings">Speed Settings</div>
+            <div class="wrapper">
+                <input type="radio" name="speed-settings" id="option-1" value="slow-speed" %SPEED_SLOW_STATUS%>
+                <input type="radio" name="speed-settings" id="option-2" value="normal-speed" %SPEED_NORMAL_STATUS%>
+                <input type="radio" name="speed-settings" id="option-3" value="fast-speed" %SPEED_FAST_STATUS%>
+                <label for="option-1" class="option option-1">
+                    <div class="dot"></div>
+                    <span>Slow</span>
+                </label>
+                <label for="option-2" class="option option-2">
+                    <div class="dot"></div>
+                    <span>Normal</span>
+                </label>
+                <label for="option-3" class="option option-3">
+                    <div class="dot"></div>
+                    <span>Fast</span>
+                </label>
+            </div>
+
+            <div class="set blue">
+                <nav class="d-pad">
+                    <a class="up control" data-direction="up"></a>
+                    <a class="right control" data-direction="right"></a>
+                    <a class="down control" data-direction="down"></a>
+                    <a class="left control" data-direction="left"></a>
+                </nav>
+                <nav class="o-pad">
+                    <a class="up control" data-direction="up"></a>
+                    <a class="right control" data-direction="right"></a>
+                    <a class="down control" data-direction="down"></a>
+                    <a class="left control" data-direction="left"></a>
+                </nav>
+            </div>
+
+        </div>
+    </div>
+    <script src="js/custom.js"></script>
+    </div>
+    </div>
+</body>
+
+</html>
