@@ -312,54 +312,7 @@ void setup()
 
 void loop()
 {
-  // put your main code here, to run repeatedly:
-  // car.moveForward();
-  // delay(3000);
-  // car.moveBackward();
-  // delay(3000);
-  // car.turnLeft();
-  // delay(3000);
-  // car.turnRight();
-  // delay(3000);
 
 }
 
-// // Motor 1 connections
-// int in1 = 16;
-// int in2 = 17;
-// // Motor 2 connections
-// int in3 = 32;
-// int in4 = 33;
-// void setup()
-// {
-//   Serial.begin(115200);
 
-//   pinMode(in1, OUTPUT);
-//   pinMode(in2, OUTPUT);
-//   pinMode(in3, OUTPUT);
-//   pinMode(in4, OUTPUT);
-// }
-
-// void moveBackward()
-// {
-
-//   Serial.println("car is moving backward...");
-//   digitalWrite(in1, HIGH);
-//   digitalWrite(in2, LOW);
-//   digitalWrite(in3, HIGH);
-//   digitalWrite(in4, LOW);
-// }
-// void loop()
-// {
-//   moveBackward();
-//   // car.moveBackward();
-//   // put your main code here, to run repeatedly:
-//   // car.moveForward();
-//   // delay(3000);
-//   // car.moveBackward();
-//   // delay(3000);
-//   // car.turnLeft();
-//   // delay(3000);
-//   // car.turnRight();
-//   // delay(3000);
-// }
