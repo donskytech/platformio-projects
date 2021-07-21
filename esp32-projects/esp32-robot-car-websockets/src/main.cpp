@@ -6,12 +6,12 @@
 
 /*
   The resolution of the PWM is 8 bit so the value is between 0-255
-  We will set the speed between 200 to 255.
+  We will set the speed between 225 to 255.
 */
 enum speedSettings
 {
-  SLOW = 200,
-  NORMAL = 225,
+  SLOW = 100,
+  NORMAL = 180,
   FAST = 255
 };
 
@@ -26,11 +26,11 @@ private:
   int in4 = 33;
 
   // PWM Setup to control motor speed
-  const int SPEED_CONTROL_PIN_1 = 21;
-  const int SPEED_CONTROL_PIN_2 = 22;
-  const int freq = 30000;
-  const int channel_0 = 0;
-  const int channel_1 = 1;
+  const int SPEED_CONTROL_PIN_1 = 25;
+  const int SPEED_CONTROL_PIN_2 = 26;
+  const int freq = 2000;
+  const int channel_0 = 1;
+  const int channel_1 = 2;
   const int resolution = 8;
 
   speedSettings currentSpeedSettings;
@@ -52,13 +52,14 @@ public:
     digitalWrite(in3, LOW);
     digitalWrite(in4, LOW);
 
+    //Set the PWM Settings
+    ledcSetup(channel_0, freq, resolution);
+    ledcSetup(channel_1, freq, resolution);
+
     //Attach Pin to Channel
     ledcAttachPin(SPEED_CONTROL_PIN_1, channel_0);
     ledcAttachPin(SPEED_CONTROL_PIN_2, channel_1);
 
-    //Set the PWM Settings
-    ledcSetup(channel_0, freq, resolution);
-    ledcSetup(channel_1, freq, resolution);
 
     // initialize default speed to SLOW
     setCurrentSpeed(speedSettings::NORMAL);
@@ -66,30 +67,29 @@ public:
   void turnLeft()
   {
     Serial.println("car is turning left...");
+    setMotorSpeed();
     digitalWrite(in1, LOW);
     digitalWrite(in2, HIGH);
     digitalWrite(in3, LOW);
     digitalWrite(in4, LOW);
-
-    setMotorSpeed();
   }
   void turnRight()
   {
     Serial.println("car is turning right...");
+    setMotorSpeed();
     digitalWrite(in1, LOW);
     digitalWrite(in2, LOW);
     digitalWrite(in3, LOW);
     digitalWrite(in4, HIGH);
-    setMotorSpeed();
   }
   void moveForward()
   {
     Serial.println("car is moving forward...");
+    setMotorSpeed();
     digitalWrite(in1, LOW);
     digitalWrite(in2, HIGH);
     digitalWrite(in3, LOW);
     digitalWrite(in4, HIGH);
-    setMotorSpeed();
   }
   void moveBackward()
   {
@@ -99,12 +99,14 @@ public:
     digitalWrite(in2, LOW);
     digitalWrite(in3, HIGH);
     digitalWrite(in4, LOW);
-
   }
   void stop()
   {
     Serial.println("car is stopping...");
-    // Turn off motors
+    ledcWrite(channel_0, 0);
+    ledcWrite(channel_1, 0);
+
+    // // Turn off motors
     digitalWrite(in1, LOW);
     digitalWrite(in2, LOW);
     digitalWrite(in3, LOW);
@@ -133,8 +135,8 @@ public:
 };
 
 // Change this to your network SSID
-const char *ssid = "<CHANGE THIS TO YOUR SSID>";
-const char *password = "<CHANGE THIS TO YOUR PASSWORD>";
+const char *ssid = "<CHANGE THIS TO YOUR WIFI SSID>";
+const char *password = "<CHANGE THIS TO YOUR WIFI PASSWORD>";
 
 // AsyncWebserver runs on port 80 and the asyncwebsocket is initialize at this point also
 AsyncWebServer server(80);
@@ -312,7 +314,4 @@ void setup()
 
 void loop()
 {
-
 }
-
-
