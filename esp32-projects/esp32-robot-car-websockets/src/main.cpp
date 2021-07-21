@@ -6,7 +6,7 @@
 
 /*
   The resolution of the PWM is 8 bit so the value is between 0-255
-  We will set the speed between 225 to 255.
+  We will set the speed between 100 to 255.
 */
 enum speedSettings
 {
@@ -28,11 +28,14 @@ private:
   // PWM Setup to control motor speed
   const int SPEED_CONTROL_PIN_1 = 25;
   const int SPEED_CONTROL_PIN_2 = 26;
+  // Play around with the frequency settings depending on the motor that you are using
   const int freq = 2000;
   const int channel_0 = 1;
   const int channel_1 = 2;
+  // 8 Bit resolution for duty cycle so value is between 0 - 255
   const int resolution = 8;
 
+  // holds the current speed settings, see values for SLOW, NORMAL, FAST
   speedSettings currentSpeedSettings;
 
 public:
@@ -60,10 +63,11 @@ public:
     ledcAttachPin(SPEED_CONTROL_PIN_1, channel_0);
     ledcAttachPin(SPEED_CONTROL_PIN_2, channel_1);
 
-
     // initialize default speed to SLOW
     setCurrentSpeed(speedSettings::NORMAL);
   }
+
+  // Turn the car left
   void turnLeft()
   {
     Serial.println("car is turning left...");
@@ -73,6 +77,8 @@ public:
     digitalWrite(in3, LOW);
     digitalWrite(in4, LOW);
   }
+
+  // Turn the car right
   void turnRight()
   {
     Serial.println("car is turning right...");
@@ -82,6 +88,8 @@ public:
     digitalWrite(in3, LOW);
     digitalWrite(in4, HIGH);
   }
+
+  // Move the car forward
   void moveForward()
   {
     Serial.println("car is moving forward...");
@@ -91,6 +99,8 @@ public:
     digitalWrite(in3, LOW);
     digitalWrite(in4, HIGH);
   }
+
+  // Move the car backward
   void moveBackward()
   {
     setMotorSpeed();
@@ -100,6 +110,8 @@ public:
     digitalWrite(in3, HIGH);
     digitalWrite(in4, LOW);
   }
+
+  // Stop the car
   void stop()
   {
     Serial.println("car is stopping...");
@@ -113,6 +125,7 @@ public:
     digitalWrite(in4, LOW);
   }
 
+  // Set the motor speed
   void setMotorSpeed()
   {
     // change the duty cycle of the speed control pin connected to the motor
@@ -121,13 +134,13 @@ public:
     ledcWrite(channel_0, currentSpeedSettings);
     ledcWrite(channel_1, currentSpeedSettings);
   }
-
+  // Set the current speed
   void setCurrentSpeed(speedSettings newSpeedSettings)
   {
     Serial.println("car is changing speed...");
     currentSpeedSettings = newSpeedSettings;
   }
-
+  // Get the current speed
   speedSettings getCurrentSpeed()
   {
     return currentSpeedSettings;
@@ -142,9 +155,10 @@ const char *password = "<CHANGE THIS TO YOUR WIFI PASSWORD>";
 AsyncWebServer server(80);
 AsyncWebSocket ws("/ws");
 
-// Our car
+// Our car object
 Car car;
 
+// Function to send commands to car
 void sendCarCommand(const char *command)
 {
   // command could be either "left", "right", "forward" or "reverse" or "stop"
@@ -183,7 +197,7 @@ void sendCarCommand(const char *command)
   }
 }
 
-// Processor for index page template
+// Processor for index.html page template.  This sets the radio button to checked or unchecked
 String indexPageProcessor(const String &var)
 {
   String status = "";
@@ -211,6 +225,7 @@ String indexPageProcessor(const String &var)
   return status;
 }
 
+// Callback function that receives messages from websocket client
 void onWsEvent(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsEventType type,
                void *arg, uint8_t *data, size_t len)
 {
@@ -256,16 +271,21 @@ void onWsEvent(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsEventTyp
   }
 }
 
+// Function called when resource is not found on the server
 void notFound(AsyncWebServerRequest *request)
 {
   request->send(404, "text/plain", "Not found");
 }
 
+// Setup function
 void setup()
 {
+  // Initialize the serial monitor baud rate
   Serial.begin(115200);
   Serial.println("Connecting to ");
   Serial.println(ssid);
+
+  // Connect to your wifi
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
   if (WiFi.waitForConnectResult() != WL_CONNECTED)
@@ -284,6 +304,7 @@ void setup()
     return;
   }
 
+  // Add callback function to websocket server
   ws.onEvent(onWsEvent);
   server.addHandler(&ws);
 
@@ -314,4 +335,5 @@ void setup()
 
 void loop()
 {
+  // No code in here.  Server is running in asynchronous mode
 }
