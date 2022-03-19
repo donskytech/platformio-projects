@@ -1,7 +1,8 @@
 #include <Arduino.h>
 
-int sensorValue;
-const int ANALOG_IN_PIN = 36;
+int sensorVal;
+const int ANALOG_READ_PIN = 36; // or A0
+const int RESOLUTION = 12; // Could be 9-12
  
 void setup()
 {
@@ -11,8 +12,11 @@ void setup()
  
 void loop()
 {
-  sensorValue = analogRead(ANALOG_IN_PIN);
-  Serial.print(sensorValue); 
+  analogReadResolution(RESOLUTION);
+  //Read and print the sensor pin value
+  sensorVal = analogRead(ANALOG_READ_PIN);
+  Serial.print(sensorVal); 
   Serial.print(" \n"); 
+  //sleep for some time before next read
   delay(100); 
 }
