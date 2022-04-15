@@ -1,12 +1,12 @@
 /*
- * WebSocketClient.ino
+ * main.cpp
  *
- *  Created on: 24.05.2015
+ *  Created on: Apr 15, 2022
+ *  Created By: donskytech
  *
  */
 
 #include <Arduino.h>
-
 #include <WiFi.h>
 #include <WiFiMulti.h>
 #include <WiFiClientSecure.h>
