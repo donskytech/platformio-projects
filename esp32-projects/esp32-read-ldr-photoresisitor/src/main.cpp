@@ -6,13 +6,13 @@ const int RESOLUTION = 12; // Could be 9-12
  
 void setup()
 {
-  Serial.begin(9600); 
-  delay(1000);
+  Serial.begin(115200); 
+  analogReadResolution(RESOLUTION);
 }
  
 void loop()
 {
-  analogReadResolution(RESOLUTION);
+  
   //Read and print the sensor pin value
   sensorVal = analogRead(ANALOG_READ_PIN);
   Serial.print(sensorVal); 
