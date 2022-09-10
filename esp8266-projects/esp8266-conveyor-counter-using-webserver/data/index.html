@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Conveyor Counter Using Webserver</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="entireframework.min.css" />
+  </head>
+  <body>
+    <script>
+      let socket = new WebSocket("ws://%LOCAL_IP_ADDRESS%/ws");
+
+      socket.onopen = function (e) {
+        console.log("[open] Connection established");
+      };
+
+      socket.onmessage = function (event) {
+        console.log(`[message] Data received from server: ${event.data}`);
+        document.getElementById("current-count").innerText = event.data;
+      };
+
+      socket.onclose = function (event) {
+        if (event.wasClean) {
+          console.log(
+            `[close] Connection closed cleanly, code=${event.code} reason=${event.reason}`
+          );
+        } else {
+          console.log("[close] Connection died");
+        }
+      };
+
+      socket.onerror = function (error) {
+        alert(`[error] ${error.message}`);
+      };
+    </script>
+    <nav class="nav" tabindex="-1" onclick="this.focus()">
+      <div class="container">
+        <a class="pagename current" href="#">www.donskytech.com</a>
+        <a href="#">One</a>
+        <a href="#">Two</a>
+        <a href="#">Three</a>
+      </div>
+    </nav>
+    <button class="btn-close btn btn-sm">×</button>
+    <div class="container">
+      <div class="hero">
+        <h1 class="title">ESP8266 Conveyor Counter Using Webserver</h1>
+        <div class="counter">
+          <h1 id="current-count">0</h1>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

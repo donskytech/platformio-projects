@@ -1,0 +1,27 @@
+/******** mincss **********/
+.hero {
+    background: #eee;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 1em;
+}
+
+.hero h1 {
+    margin-top: 0;
+    margin-bottom: 0.3em;
+}
+
+/****** Custom CSS  ********/
+.title{
+    text-align: center;
+}
+
+.counter{
+    text-align: center;
+}
+
+#current-count{
+    font-size: 15em;
+    font-weight: bold;
+    color: blue;
+}
