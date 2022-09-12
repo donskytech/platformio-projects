@@ -37,15 +37,6 @@ int seven_segment[DISPLAY_COUNT][COL_COUNT]{
     {1, 1, 1, 1, 0, 1, 1, 0}  // Display 9
 };
 
-void turnOffDisplay()
-{
-  // initialize all pins to off
-  for (size_t i = 0; i < PIN_COUNT; i++)
-  {
-    digitalWrite(segmentPins[i], SEVEN_SEMENT_TYPE);
-  }
-}
-
 void setup()
 {
   // Initialize the serial monitor baud rate
@@ -60,8 +51,6 @@ void setup()
 
 void loop()
 {
-  turnOffDisplay();
-
   // put your main code here, to run repeatedly:
   for (size_t iCtr = 0; iCtr < DISPLAY_COUNT; iCtr++)
   {
