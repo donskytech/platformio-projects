@@ -4,6 +4,10 @@ This repository will contain projects created with platform-io
 
 # Projects:
 ## September 14, 2022
+  **ESP8266 Webserver - LittleFS**  
+  https://github.com/donskytech/platformio-projects/tree/main/esp8266-projects/esp8266-webserver-littlefs
+  
+## September 14, 2022
   **ESP8266 Webserver - No Filesystem**  
   https://github.com/donskytech/platformio-projects/tree/main/esp8266-projects/esp8266-webserver-no-filesystem
   
