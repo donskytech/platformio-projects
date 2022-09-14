@@ -1,0 +1,75 @@
+/******** mincss **********/
+.hero {
+    background: #eee;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 1em;
+    text-align: center;
+
+}
+
+.hero h1 {
+    margin-top: 0;
+    margin-bottom: 0.3em;
+    color: red;
+}
+
+/****** Custom toggle Switch**********/
+/* https://codepen.io/alvarotrigo/pen/abVPyaJ */
+/*********************/
+.toggle-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5em;
+}
+
+.label{
+    font-size: 1.5em;
+    font-weight: bolder;
+    margin-right: 0.5em;
+    /* color: blue */
+}
+
+/* Styles for the toggle switch */
+input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+  
+  label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 150px;
+    height: 60px;
+    background: grey;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+  }
+  
+  label:after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 70px;
+    height: 50px;
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
+  }
+  
+  input:checked + label {
+    background: #bada55;
+  }
+  
+  input:checked + label:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+  }
+  
+  label:active:after {
+    width: 130px;
+  }
