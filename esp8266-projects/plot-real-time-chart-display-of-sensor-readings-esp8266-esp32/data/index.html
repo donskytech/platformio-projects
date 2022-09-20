@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ESP8266 LittleFS Webserver</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="entireframework.min.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"
+      integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <nav class="nav" tabindex="-1" onclick="this.focus()">
+      <div class="container">
+        <a class="pagename current" href="#">www.donskytech.com</a>
+        <a href="#">One</a>
+        <a href="#">Two</a>
+        <a href="#">Three</a>
+      </div>
+    </nav>
+    <button class="btn-close btn btn-sm">×</button>
+    <div class="container">
+      <div class="hero">
+        <h1>Real-time Chart display of Sensor Readings</h1>
+        <div class="chart-container">
+          <canvas id="myChart" width="1000" height="600"></canvas>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
