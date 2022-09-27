@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,500,600,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+  font-family: "Lato", sans-serif;
+}
+
+.hero {
+    background: #eee;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 1em;
+    text-align: center;
+}
+
+.hero h1 {
+    margin-top: 0;
+    margin-bottom: 0.3em;
+}
+
+.c4 {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.c4 h3 {
+    margin-top: 0;
+}
+
+.c4 a {
+    margin-top: 10px;
+    display: inline-block;
+}
+
+/** RFID CSS ***/
+.access{
+  padding: 1em;
+}
+#access-id{
+  color:blue;
+  display: none;
+}
+
+#access-denied, #access-approve{
+  border-radius: 25px;
+  padding: 1em;
+  font-size: 3em;
+  color: #FFF;
+  display: none;
+}
+
+#access-denied{
+  background-color: red;
+}
+
+#access-approve{
+  background-color: green;
+}
