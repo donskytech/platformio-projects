@@ -64,7 +64,6 @@ void reconnect()
     if (client.connect(clientId.c_str()))
     {
       Serial.println("MQTT Broker connected!");
-      client.subscribe("inTopic");
     }
     else
     {
