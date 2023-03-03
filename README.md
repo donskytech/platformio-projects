@@ -1,4 +1,4 @@
 # platformio-projects
 
-This repository will contain projects created with platform-io
+This repository will contain projects created with PlatformIO
 
