@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+:root {
+  /* --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483; */
+  --color-background: #f6f6f9;
+  --color-white: #fff;
+}
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  appearance: none;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: poppins, san-serif;
+  font-size: 0.88rem;
+  background: #f6f6f9;
+  user-select: none;
+  overflow-x: hidden;
+}
+main {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.4rem;
+}
+.heading {
+  /* background: var(--color-white); */
+  background-color: rgb(57, 21, 239);
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 2rem;
+  /* border-radius: 2rem; */
+  margin-bottom: 2rem;
+}
+.heading h1 {
+  font-size: 3.5rem;
+}
+
+.status {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 80%;
+  padding: 2rem;
+}
+
+.status h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.message {
+  font-size: 5rem;
+  width: 80%;
+  padding: 1rem;
+  text-align: center;
+}
+.message-info {
+  background-color: rgb(105, 245, 245);
+}
+
+.message-error {
+  background-color: rgb(50, 1, 7);
+  color: white;
+}
+
+.message-denied {
+  background-color: rgb(250, 10, 42);
+  color: white;
+}
+
+.message-granted {
+  background-color: rgb(0, 111, 15);
+  color: white;
+}
