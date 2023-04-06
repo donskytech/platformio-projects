@@ -16,8 +16,8 @@
 const char *base_rest_url = "http://192.168.100.22:5000/";
 
 // SSID and Password
-const char *ssid = "donsky-4thFloor";
-const char *password = "donsky982";
+const char *ssid = "<CHANGE_ME>";
+const char *password = "<CHANGE_ME>";
 
 /**** -- END -- *****/
 
