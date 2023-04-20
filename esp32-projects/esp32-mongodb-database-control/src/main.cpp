@@ -29,6 +29,7 @@ const int RELAY_PIN_2 = 18;
 const int RELAY_PIN_3 = 5;
 const int RELAY_PIN_4 = 17;
 
+char dhtObjectId[30];
 #define DHTPIN 32 // Digital pin connected to the DHT sensor
 
 // Uncomment whatever type you're using!
@@ -196,6 +197,23 @@ void sendDHT22Readings(const char *objectId, DHT22Readings dhtReadings)
   }
 }
 
+// Get DHT22 ObjectId
+void getDHT22ObjectId(const char *sensor_id)
+{
+  StaticJsonDocument<JSON_DOC_SIZE> doc = callHTTPGet(sensor_id);
+  if (doc.isNull() || doc.size() > 1)
+    return;
+  for (JsonObject item : doc.as<JsonArray>())
+  {
+    Serial.println(item);
+    const char *objectId = item["_id"]["$oid"]; // "dht22_1"
+    strcpy(dhtObjectId, objectId);
+
+    return;
+  }
+  return;
+}
+
 // Read DHT22 sensor
 DHT22Readings readDHT22()
 {
@@ -270,6 +288,8 @@ void setup()
   Serial.println(WiFi.localIP());
   //  Start DHT Sensor readings
   dht.begin();
+  //  Get the ObjectId of the DHT22 sensor
+  getDHT22ObjectId("dht22_1");
   // Setup LED
   pinMode(LED_PIN, OUTPUT);
   // Setup relay
@@ -334,6 +354,6 @@ void loop()
     Serial.println(readings.temperature);
     Serial.print("Humidity :: ");
     Serial.println(readings.humidity);
-    sendDHT22Readings("64379da4d1e793f7019e20a0", readings);
+    sendDHT22Readings(dhtObjectId, readings);
   }
 }
