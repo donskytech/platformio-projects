@@ -1,0 +1,68 @@
+/*
+  Project Desc: Control 16 Channel relays
+  By: DonskyTech (www.donskytech.com)
+
+  WIRING/SCHEMATIC
+
+  RELAY   Power Supply
+  DC(+)   Power Supply (+) 5V
+  DC(-)   Power Supply (-) 5V
+
+  RELAY   ESP32
+  GND     GND
+  5v      NO CONNECTION
+
+  PCF8575 RELAY
+  P0      IN1
+  P1      IN1
+  P2      IN3
+  .
+  .
+  .
+  P15     IN16
+*/
+
+#include "Arduino.h"
+#include "PCF8575.h"
+
+// Set i2c address
+PCF8575 pcf8575(0x20);
+
+const int INITIAL_PIN_RELAY = 0;
+const int RELAY_PIN_COUNT = 16;
+void setup()
+{
+  Serial.begin(9600);
+
+  // Set All Pins to OUTPUT
+  for (int iCtr = INITIAL_PIN_RELAY; iCtr < RELAY_PIN_COUNT; iCtr++)
+  {
+    pcf8575.pinMode(iCtr, OUTPUT);
+  }
+  pcf8575.begin();
+
+  Serial.println("Turn OFF all Relays initially...");
+  for (int iCtr = INITIAL_PIN_RELAY; iCtr < RELAY_PIN_COUNT; iCtr++)
+  {
+    pcf8575.digitalWrite(iCtr, HIGH);
+    delay(100);
+  }
+}
+
+void loop()
+{
+  // Turn ON all relays
+  Serial.println("Turn ON all Relays");
+  for (int iCtr = INITIAL_PIN_RELAY; iCtr < RELAY_PIN_COUNT; iCtr++)
+  {
+    pcf8575.digitalWrite(iCtr, LOW);
+    delay(1000);
+  }
+
+  Serial.println("Turn OFF all Relays");
+  for (int iCtr = INITIAL_PIN_RELAY; iCtr < RELAY_PIN_COUNT; iCtr++)
+  {
+    pcf8575.digitalWrite(iCtr, HIGH);
+    delay(1000);
+  }
+}
