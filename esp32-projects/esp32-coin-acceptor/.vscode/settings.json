@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "*.html": "html",
+        "system_error": "cpp",
+        "algorithm": "cpp",
+        "array": "cpp",
+        "functional": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp",
+        "utility": "cpp"
+    }
+}
