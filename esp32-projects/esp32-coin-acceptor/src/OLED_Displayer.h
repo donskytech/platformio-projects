@@ -1,11 +1,11 @@
-#ifndef QRCODE_DISPLAYER
-#define QRCODE_DISPLAYER
+#ifndef OLED_DISPLAYER
+#define OLED_DISPLAYER
 #include "Arduino.h"
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
-class QRCodeDisplayer
+class OLEDDisplayer
 {
 private:
     int width;
@@ -13,7 +13,7 @@ private:
     Adafruit_SSD1306 display;
 
 public:
-    QRCodeDisplayer(int, int, Adafruit_SSD1306);
+    OLEDDisplayer(int, int, Adafruit_SSD1306);
     void begin();
     void displayText(const char *text1, const char *text2 = "", uint8_t textSize = 1);
     void displayText(const char *text1, uint8_t amount, uint8_t textSize = 1);
