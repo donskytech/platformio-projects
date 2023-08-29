@@ -1,2 +1,2 @@
 # Writeup  
-<Soon to follow on www.donskytech.com>
+Soon to follow on www.donskytech.com
