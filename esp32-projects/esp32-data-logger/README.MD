@@ -1,2 +1,4 @@
 # Writeup  
-Soon to follow on www.donskytech.com
+https://www.donskytech.com/arduino-data-logger-using-mongodb-database/
+
+
