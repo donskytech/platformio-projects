@@ -1,4 +1,4 @@
 # Writeup  
-[ESP32 – Read DHT22 Sensor using Arduino](https://www.donskytech.com/esp32-read-dht22-sensor-using-arduino/)  
-  
-![Featured Image - ESP32 - DHT22 - Arduino](https://user-images.githubusercontent.com/69466026/222163578-ebe63500-ec4c-400a-b4dd-a0685c42d49e.jpg)
+https://www.donskytech.com/arduino-data-logger-using-mongodb-database/
+![Featured Image - Arduino Data Logger using MongoDB Database](https://github.com/donskytech/platformio-projects/assets/69466026/b0b94fa2-a9ac-49cd-8c45-b51fe5aa3b87)
+
