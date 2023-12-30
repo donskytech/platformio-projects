@@ -1,0 +1,25 @@
+#include <Arduino.h>
+
+void setup()
+{
+  Serial.begin(9600);
+  Serial1.begin(9600);
+  Serial2.begin(115200);
+}
+
+void loop()
+{
+  while (Serial.available())
+  {
+    // Do your code
+  }
+  while (Serial1.available())
+  {
+    // Do your code
+  }
+  while (Serial2.available())
+  {
+    // Do your code
+  }
+}
+

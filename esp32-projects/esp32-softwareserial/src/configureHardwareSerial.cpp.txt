@@ -1,0 +1,28 @@
+#include <Arduino.h>
+
+HardwareSerial mySerial(0);
+HardwareSerial mySerial1(1);
+HardwareSerial mySerial2(2);
+
+void setup()
+{
+  mySerial.begin(9600, SERIAL_8N1); // Default config
+  mySerial1.begin(9600, SERIAL_8E1, 32, 33); // Set Serial Communication config and reassign pins to 32, 33
+  mySerial2.begin(115200, SERIAL_8N2); // Set Serial Communication config
+}
+
+void loop()
+{
+  while (mySerial.available())
+  {
+    // Do your code
+  }
+  while (mySerial1.available())
+  {
+    // Do your code
+  }
+  while (mySerial2.available())
+  {
+    // Do your code
+  }
+}

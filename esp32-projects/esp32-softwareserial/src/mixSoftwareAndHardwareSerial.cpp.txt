@@ -1,0 +1,26 @@
+#include <Arduino.h>
+#include <SoftwareSerial.h>
+
+// Define SoftwareSerial
+SoftwareSerial mySerial(5, 18); 
+
+void setup() {
+  // Initialize hardware serial baud Rate
+  Serial.begin(9600);   
+  // Initialize software serial         
+  mySerial.begin(9600);  
+}
+
+void loop() {
+  if (Serial.available()) {
+    char c = Serial.read();
+     // Send data received from hardware serial to software serial
+    mySerial.write(c); 
+  }
+
+  if (mySerial.available()) {
+    char c = mySerial.read();
+    // Send data received from software serial to hardware serial
+    Serial.write(c);  
+  }
+}
